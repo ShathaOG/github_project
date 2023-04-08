@@ -262,12 +262,12 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time
-    total_travel_time = df['Trip Duration'].sum() / 3600                             # sum over Trip Duration column and convert to hours
+    total_travel_time = round(df['Trip Duration'].sum() / 3600)                      # sum over Trip Duration column and convert to hours
     trip_table.add_column('Total Travel Time', justify = 'center', style = 'cyan')   # adds Total Travel Time column to trip_table
     travel_count = df['Trip Duration'].count()
 
     # display mean travel time
-    mean_travel_time = df['Trip Duration'].mean() / 60                               # calculate mean of Trip Duration column and convert to min
+    mean_travel_time = round(df['Trip Duration'].mean() / 60)                        # calculate mean of Trip Duration column and convert to min
     trip_table.add_column('Mean Travel Time', justify = 'center', style = 'cyan')    # adds Mean Travel Time column to trip_table
     
     # adds rows to trip_table
@@ -305,11 +305,11 @@ def user_stats(city, df):
     else:
         gender = df['Gender'].value_counts(dropna = True)                       # finds the gender of users and counts the occurrences of each
         user_table.add_column('Gender', justify = 'center', style = 'cyan')     # adds Gender column to user_table
-        early_birth_year = df['Birth Year'].min(skipna = True)                  # finds earliest year of birth
+        early_birth_year = int(df['Birth Year'].min(skipna = True))             # finds earliest year of birth
         user_table.add_column('Earliest Birth Year', justify = 'center', style = 'cyan')      # adds Earliest Birth Year column to user_table
-        recent_birth_year = df['Birth Year'].max(skipna = True)                               # finds most recent year of birth
+        recent_birth_year = int(df['Birth Year'].max(skipna = True))                          # finds most recent year of birth
         user_table.add_column('Most Recent Birth Year', justify = 'center', style = 'cyan')   # adds Most Recent Birth Year column to user_table
-        common_birth_year = df['Birth Year'].mode(dropna = True)[0]                           # finds most common year of birth
+        common_birth_year = int(df['Birth Year'].mode(dropna = True)[0])                      # finds most common year of birth
         user_table.add_column('Most Common Birth Year', justify = 'center', style = 'cyan')   # adds Most Common Birth Year column to user_table
     
     # display the results based on the filter
