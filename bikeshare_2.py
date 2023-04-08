@@ -338,7 +338,7 @@ def display_data(df, n):
     while True:
         print(df.iloc[index:index + 5])                                      # prints 5 rows at a time
         display = input('\nWould you like to see more raw data? Type y: yes or n: no\n')
-        if display.lower() == 'n':
+        if display.lower() == 'n' or display.lower() == 'no':
             break
         else:
             index += 5                                                       # increments index to print the next 5 rows
@@ -358,12 +358,12 @@ def main():
 
         print('\nWould you like to view the raw data? Type y: yes or n: no')
         display = input('\n')
-        if display.lower() == 'y':
+        if display.lower() == 'y' or display.lower() == 'yes':
             display_data(df, 5)
 
         CONSOLE.print('\nWould you like to restart? Type y: yes or n: no', style = theme_op('success'))
         restart = input('\n')
-        if restart.lower() != 'y':
+        if restart.lower() == 'n' or restart.lower() == 'no':
             print(Panel('Goodbye!', expand = True, style = 'cyan'))
             break
 
