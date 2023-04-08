@@ -335,6 +335,7 @@ def display_data(df, n):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     index = 0                                                                # index to be used for slicing
+    pd.set_option('display.max_columns',50)
     while True:
         print(df.iloc[index:index + 5])                                      # prints 5 rows at a time
         display = input('\nWould you like to see more raw data? Type y: yes or n: no\n')
