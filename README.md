@@ -19,6 +19,11 @@ To install Rich using pip:
 pip install rich
 ```
 
+To install using Homebrew:
+```
+brew install rich
+```
+
 ### Credits
 The following references were used:
 - [Validate user input](https://stackoverflow.com/questions/53173087/input-in-python-to-be-only-in-string)
